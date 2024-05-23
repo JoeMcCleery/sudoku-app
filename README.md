@@ -33,10 +33,6 @@ Suduku web app and api built using next.js
   - graph animations
   - soduku solved animation
 
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
-
 ## Running Tests
 
 ```bash
