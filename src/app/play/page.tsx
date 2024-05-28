@@ -1,14 +1,15 @@
-import Board from "@/components/sudoku/board";
+import PageContainer from "@/components/pageContainer";
+import BoardContainer from "@/components/sudoku/boardContainer";
 
 export const metadata = {
-  title: "Sudoku App",
+  title: "Sudoku App - Play",
   description: "Sudoku web app and api built using next.js",
 };
 
 export default function Page() {
   return (
-    <main className="p-4 m-auto max-w-xl">
-      <Board />
-    </main>
+    <PageContainer>
+      <BoardContainer />
+    </PageContainer>
   );
 }

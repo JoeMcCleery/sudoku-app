@@ -1,12 +1,14 @@
+import PageContainer from "@/components/pageContainer";
+
 export const metadata = {
-  title: "Sudoku App",
+  title: "Sudoku App - Home",
   description: "Sudoku web app and api built using next.js",
 };
 
 export default function Page() {
   return (
-    <main>
+    <PageContainer>
       <p>Home page content!</p>
-    </main>
+    </PageContainer>
   );
 }
