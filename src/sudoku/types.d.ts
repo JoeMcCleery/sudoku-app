@@ -1,9 +1,11 @@
+declare type Position = {
+  readonly x: number;
+  readonly y: number;
+};
+
 declare type Cell = {
   value?: number;
-  readonly pos: {
-    readonly x: number;
-    readonly y: number;
-  };
+  readonly pos: Position;
   editable: boolean;
 };
 
