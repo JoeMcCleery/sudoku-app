@@ -1,6 +1,6 @@
 import { cyrb53 } from "@/util/hash";
 
-export function getBoardKey(seed: string, numClues: number) {
+function getBoardKey(seed: string, numClues: number) {
   return `board-${cyrb53(seed + numClues)}`;
 }
 
