@@ -34,3 +34,11 @@ export function randomString(length: number) {
   }
   return result;
 }
+
+export function shuffle(array: Array<any>, rng: () => number) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
