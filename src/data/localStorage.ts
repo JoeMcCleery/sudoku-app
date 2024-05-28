@@ -12,5 +12,6 @@ export function getBoardData(seed: string, numClues: number): Board | null {
 
 export function setBoardData(board: Board) {
   const key = getBoardKey(board.seed, board.numClues);
+  board.updatedAt = Date.now();
   localStorage.setItem(key, JSON.stringify(board));
 }

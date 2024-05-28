@@ -25,6 +25,7 @@ export function generateBoard(seed: string, numClues: number): Board {
     seed,
     numClues,
     cells,
+    updatedAt: Date.now(),
   };
 }
 

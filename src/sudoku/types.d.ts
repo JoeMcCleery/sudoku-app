@@ -15,4 +15,6 @@ declare type Board = {
   seed: string;
   numClues: number;
   cells: Cells;
+  updatedAt: number;
+  completedAt?: number;
 };
