@@ -12,9 +12,9 @@ declare type Cell = {
 declare type Cells = Cell[][];
 
 declare type Board = {
-  seed: string;
-  numClues: number;
-  cells: Cells;
+  readonly seed: string;
+  readonly numClues: number;
+  readonly cells: Cells;
   updatedAt: number;
   completedAt?: number;
 };
