@@ -11,6 +11,7 @@ export default function NavLinks() {
       key={link.href}
       href={link.href}
       title={link.title}
+      className="bg-sky-800 p-2 rounded"
     >
       {link.title}
     </Link>
