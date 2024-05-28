@@ -5,7 +5,7 @@ import { randomRangeInt, randomString } from "@/util/random";
 export async function GET(request: NextRequest) {
   // Get query params
   const searchParams = request.nextUrl.searchParams;
-  const seed = searchParams.get("seed") || randomString(6);
+  const seed = searchParams.get("seed")?.toUpperCase() || randomString(6);
   const numClues = parseInt(
     searchParams.get("numClues") ||
       randomRangeInt(Math.random, 79, 17).toString()
