@@ -4,17 +4,7 @@ import { trySolveRecursive } from "@/sudoku/solver";
 
 export function generateBoard(seed: string, numClues: number): Board {
   // Create empty cells
-  const cells: Cells = [];
-  const size = 9;
-  for (let x = 0; x < size; x++) {
-    cells[x] = [];
-    for (let y = 0; y < size; y++) {
-      cells[x][y] = {
-        pos: { x, y },
-        editable: false,
-      };
-    }
-  }
+  const cells = createEmptyCells();
 
   // Seed random number generator
   const rng = splitmix32(cyrb53(seed));
@@ -36,4 +26,18 @@ export function generateBoard(seed: string, numClues: number): Board {
     numClues,
     cells,
   };
+}
+
+export function createEmptyCells(size: number = 9) {
+  const cells: Cells = [];
+  for (let x = 0; x < size; x++) {
+    cells[x] = [];
+    for (let y = 0; y < size; y++) {
+      cells[x][y] = {
+        pos: { x, y },
+        editable: false,
+      };
+    }
+  }
+  return cells;
 }
