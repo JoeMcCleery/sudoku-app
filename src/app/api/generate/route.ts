@@ -14,13 +14,13 @@ export async function GET(request: NextRequest) {
   // Check numClues is valid
   if (isNaN(numClues)) {
     return NextResponse.json(
-      { error: "Bad Request: numClues is not a valid number!" },
+      { error: "Query parameter 'numClues' is not a valid number!" },
       { status: 400 }
     );
   }
   if (numClues < 17 || numClues > 78) {
     return NextResponse.json(
-      { error: "Bad Request: numClues is not within the range 17-78!" },
+      { error: "Query parameter 'numClues' is not within the range 17-78!" },
       { status: 400 }
     );
   }
@@ -29,5 +29,5 @@ export async function GET(request: NextRequest) {
   const board = generateBoard(seed, numClues);
 
   // Return generated board
-  return NextResponse.json(board);
+  return NextResponse.json(board, { status: 200 });
 }

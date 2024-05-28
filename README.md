@@ -18,10 +18,11 @@ Suduku web app and api built using next.js
 - Api [3]
   - /api/generate - generate soduku puzzle
   - /api/user - get user data
-- User page [1, 3, 6]
+- Home page [1, 3, 6]
   - display bar graph of games completed over time
   - display list of games (completed and in-progress)
   - resume in-progress games
+  - start new game form (optional seed and numClues fields)
 - Sudoku page [1, 2, 3]
   - soduku puzzle using html grid
   - input answers into grid cells

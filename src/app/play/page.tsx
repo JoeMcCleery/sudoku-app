@@ -1,3 +1,5 @@
+import Board from "@/components/sudoku/board";
+
 export const metadata = {
   title: "Sudoku App",
   description: "Sudoku web app and api built using next.js",
@@ -6,8 +8,8 @@ export const metadata = {
 export default function Page() {
   return (
     <main>
-      <h1 className="font-bold text-3xl">Sudoku App</h1>
-      <p>Hello World</p>
+      <h1 className="font-bold text-3xl">Sudoku</h1>
+      <Board />
     </main>
   );
 }
