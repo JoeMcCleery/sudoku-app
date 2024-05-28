@@ -4,9 +4,9 @@ export function trySolveRecursive(cells: Cells, rng: () => number) {
   // Get empty cells
   const emptyCells = cells.flat().filter((cell) => !cell.value);
 
-  // If no empty cells there must be a valid solution
+  // If no empty cells check there is a valid solution
   if (emptyCells.length == 0) {
-    return true;
+    return isSolved(cells);
   }
 
   // Get random empty cell with least number of legal values remaining
@@ -16,7 +16,7 @@ export function trySolveRecursive(cells: Cells, rng: () => number) {
       return [
         c,
         shuffle(legalValues, rng),
-        legalValues.length + rng(),
+        legalValues.length + rng(), // Add small variance to randomise sort
       ] as const;
     })
     .sort((a, b) => a[2] - b[2])[0];
@@ -74,7 +74,7 @@ export function isSolved(cells: Cells) {
   return true;
 }
 
-export function getLegalValues(cells: Cells, pos: { x: number; y: number }) {
+export function getLegalValues(cells: Cells, pos: Position) {
   // Keep track of used values
   const usedValues: number[] = [];
 
