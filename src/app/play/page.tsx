@@ -7,8 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main>
-      <h1 className="font-bold text-3xl">Sudoku</h1>
+    <main className="p-4 m-auto max-w-xl">
       <Board />
     </main>
   );

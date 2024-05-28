@@ -6,8 +6,7 @@ export const metadata = {
 export default function Page() {
   return (
     <main>
-      <h1 className="font-bold text-3xl">Sudoku App</h1>
-      <p>Hello World</p>
+      <p>Home page content!</p>
     </main>
   );
 }
