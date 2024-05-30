@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { setBoardData } from "@/data/localStorage";
 import Cell from "@/components/sudoku/cell";
+import { isSolved } from "@/sudoku/solver";
 
 interface BoardProps {
   board: Board;
@@ -11,6 +12,7 @@ export default function Board({ board }: BoardProps) {
   const [boardState, setBoardState] = useState(board);
 
   const cells = boardState.cells;
+  const solved = isSolved(cells);
 
   const subgrids = cells.flat().reduce(
     (acc: Cells, cell) => {
@@ -42,7 +44,11 @@ export default function Board({ board }: BoardProps) {
         checked={showHints}
       />
 
-      <div className="grid grid-cols-3 board bg-lime-800 gap-2 p-2">
+      <div
+        className={`grid grid-cols-3 board bg-lime-800 gap-2 p-2 ${
+          solved && "animate-pulse"
+        }`}
+      >
         {subgrids.map((gridCells, i) => (
           <div
             key={i}
