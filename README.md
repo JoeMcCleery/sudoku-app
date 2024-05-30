@@ -1,6 +1,6 @@
 # sudoku-app
 
-Suduku web app and api built using next.js
+Suduku web app and api built using next.js and hosted on vercel
 
 ## Project Design
 
