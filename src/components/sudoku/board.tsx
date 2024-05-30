@@ -1,6 +1,6 @@
-import { getLegalValues } from "@/sudoku/solver";
-import Cell from "./cell";
 import { useState } from "react";
+import { setBoardData } from "@/data/localStorage";
+import Cell from "@/components/sudoku/cell";
 
 interface BoardProps {
   board: Board;
@@ -8,8 +8,9 @@ interface BoardProps {
 
 export default function Board({ board }: BoardProps) {
   const [showHints, setShowHints] = useState(true);
+  const [boardState, setBoardState] = useState(board);
 
-  const cells = board.cells;
+  const cells = boardState.cells;
 
   const subgrids = cells.flat().reduce(
     (acc: Cells, cell) => {
@@ -24,6 +25,12 @@ export default function Board({ board }: BoardProps) {
       .map(() => Array(9))
   );
 
+  function updateBoard() {
+    const newBoard = { ...boardState };
+    setBoardData(newBoard);
+    setBoardState(newBoard);
+  }
+
   return (
     <>
       <label htmlFor="showHints">Show hints </label>
@@ -36,33 +43,24 @@ export default function Board({ board }: BoardProps) {
       />
 
       <div className="grid grid-cols-3 board bg-lime-800 gap-2 p-2">
-        {subgrids.map((gidCells, i) => (
+        {subgrids.map((gridCells, i) => (
           <div
             key={i}
             className="grid grid-cols-3 gap-1 bg-lime-700"
           >
-            {gidCells.map((cell, j) => (
-              <div
+            {gridCells.map((cell, j) => (
+              <Cell
                 key={j}
-                className={`relative aspect-square flex justify-center items-center text-lime-950 ${
-                  cell.editable
-                    ? cell.value
-                      ? "bg-lime-200/80"
-                      : "bg-lime-50"
-                    : "bg-lime-400/30"
-                }`}
-              >
-                <Cell
-                  cell={cell}
-                  legalValues={getLegalValues(cells, cell.pos)}
-                  showHints={showHints}
-                />
-              </div>
+                cells={cells}
+                pos={cell.pos}
+                showHints={showHints}
+                onChange={updateBoard}
+              />
             ))}
           </div>
         ))}
       </div>
-      <p>updatedAt: {new Date(board.updatedAt).toLocaleString()}</p>
+      <p>updatedAt: {new Date(boardState.updatedAt).toLocaleString()}</p>
     </>
   );
 }

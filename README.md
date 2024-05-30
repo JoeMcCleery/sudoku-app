@@ -24,9 +24,8 @@ Suduku web app and api built using next.js
   - resume in-progress games
   - start new game form (optional seed and numClues fields)
 - Sudoku page [1, 2, 3]
-  - soduku puzzle using html grid
+  - soduku puzzle using css grid
   - input answers into grid cells
-  - can only make legal moves
   - check for solution
   - save games to database
 - Animated user interations [2, 4, 5]

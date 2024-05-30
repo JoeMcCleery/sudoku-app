@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { randomRangeInt, randomString } from "@/util/random";
 import { getBoardData, setBoardData } from "@/data/localStorage";
-import Board from "./board";
+import Board from "@/components/sudoku/board";
 
 export default function BoardContainer() {
   const searchParams = useSearchParams();
