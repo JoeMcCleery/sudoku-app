@@ -3,6 +3,7 @@ import Link from "next/link";
 const data = [
   { href: "/", title: "Home" },
   { href: "/play", title: "Play" },
+  { href: "/about", title: "About" },
 ];
 
 export default function NavLinks() {

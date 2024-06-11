@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { setBoardData } from "@/data/localStorage";
 import Cell from "@/components/sudoku/cell";
-import { isSolved } from "@/sudoku/solver";
 
 interface BoardProps {
   board: Board;
@@ -12,7 +11,7 @@ export default function Board({ board }: BoardProps) {
   const [boardState, setBoardState] = useState(board);
 
   const cells = boardState.cells;
-  const solved = isSolved(cells);
+  const solved = boardState.completedAt != undefined;
 
   const subgrids = cells.flat().reduce(
     (acc: Cells, cell) => {
@@ -44,15 +43,13 @@ export default function Board({ board }: BoardProps) {
         checked={showHints}
       />
 
-      <div
-        className={`grid grid-cols-3 board bg-lime-800 gap-2 p-2 ${
-          solved && "animate-pulse"
-        }`}
-      >
+      <div className="relative grid grid-cols-3 board bg-lime-800 gap-2 p-2">
         {subgrids.map((gridCells, i) => (
           <div
             key={i}
-            className="grid grid-cols-3 gap-1 bg-lime-700"
+            className={`grid grid-cols-3 gap-1 bg-lime-700 ${
+              solved && "animate-pulse"
+            }`}
           >
             {gridCells.map((cell, j) => (
               <Cell
@@ -60,12 +57,23 @@ export default function Board({ board }: BoardProps) {
                 cells={cells}
                 pos={cell.pos}
                 showHints={showHints}
+                editable={!solved}
                 onChange={updateBoard}
               />
             ))}
           </div>
         ))}
       </div>
+
+      {solved && (
+        <>
+          <p className="text-3xl font-bold">Solved! Congrats!</p>
+          <p>
+            completedAt: {new Date(boardState.completedAt!).toLocaleString()}
+          </p>
+        </>
+      )}
+
       <p>updatedAt: {new Date(boardState.updatedAt).toLocaleString()}</p>
     </>
   );

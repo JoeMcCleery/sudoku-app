@@ -24,8 +24,8 @@ export default function BoardContainer() {
 
     // Get from local storage
     const data = getBoardData(seed, numClues);
-    if (data) {
-      setBoard(data);
+    if (data[1]) {
+      setBoard(data[1]);
       return;
     }
 
@@ -50,7 +50,7 @@ export default function BoardContainer() {
     return <p className="text-red-500">{error}</p>;
   }
   if (!board) {
-    return <p>Loading...</p>;
+    return <p className="animate-pulse">Loading...</p>;
   }
 
   return (

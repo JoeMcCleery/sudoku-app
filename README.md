@@ -17,7 +17,6 @@ Suduku web app and api built using next.js and hosted on vercel
 
 - Api [3]
   - /api/generate - generate soduku puzzle
-  - /api/user - get user data
 - Home page [1, 3, 6]
   - display bar graph of games completed over time
   - display list of games (completed and in-progress)

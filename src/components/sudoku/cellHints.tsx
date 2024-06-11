@@ -1,3 +1,5 @@
+import ScalableText from "@/components/sudoku/scalableText";
+
 interface CellHintsProps {
   legalValues: number[];
 }
@@ -13,14 +15,14 @@ export default function CellHints({ legalValues }: CellHintsProps) {
   return (
     <div className="absolute inset-0 size-full grid grid-cols-3 pointer-events-none">
       {allValues.map((value, i) => (
-        <p
+        <div
           key={i}
-          className={`aspect-square leading-[1] flex justify-center items-center text-sm transition-opacity ${
+          className={`aspect-square flex justify-center items-center transition-opacity ${
             legalValues.includes(value) ? "opacity-100" : "opacity-0"
           }`}
         >
-          {value}
-        </p>
+          <ScalableText text={value.toString()} />
+        </div>
       ))}
     </div>
   );

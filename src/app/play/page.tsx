@@ -10,6 +10,7 @@ export const metadata = {
 export default function Page() {
   return (
     <PageContainer>
+      <h2 className="text-xl font-bold mb-2">Play</h2>
       <Suspense>
         <BoardContainer />
       </Suspense>

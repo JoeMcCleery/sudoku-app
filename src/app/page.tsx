@@ -1,4 +1,5 @@
 import PageContainer from "@/components/pageContainer";
+import { UserDataPanel } from "@/components/dataPanel/userDataPanel";
 
 export const metadata = {
   title: "Sudoku App - Home",
@@ -8,7 +9,7 @@ export const metadata = {
 export default function Page() {
   return (
     <PageContainer>
-      <p>Home page content!</p>
+      <UserDataPanel />
     </PageContainer>
   );
 }
