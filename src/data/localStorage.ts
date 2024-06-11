@@ -10,7 +10,7 @@ export function getBoardData(seed: string, numClues: number): BoardData | null {
 
   const key = getBoardDataKey(seed, numClues);
   const board = localStorage.getItem(key);
-  return [key, board ? JSON.parse(board) : undefined];
+  return board ? [key, JSON.parse(board)] : null;
 }
 
 export function setBoardData(board: Board) {
