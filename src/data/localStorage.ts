@@ -5,10 +5,12 @@ function getBoardDataKey(seed: string, numClues: number) {
   return `board-${cyrb53(seed + numClues)}`;
 }
 
-export function getBoardData(seed: string, numClues: number): BoardData {
+export function getBoardData(seed: string, numClues: number): BoardData | null {
+  if (typeof localStorage == "undefined") return null;
+
   const key = getBoardDataKey(seed, numClues);
   const board = localStorage.getItem(key);
-  return [key, board ? JSON.parse(board) : null];
+  return [key, board ? JSON.parse(board) : undefined];
 }
 
 export function setBoardData(board: Board) {
@@ -19,6 +21,8 @@ export function setBoardData(board: Board) {
 }
 
 export function getAllBoardData(): BoardData[] {
+  if (typeof localStorage == "undefined") return [];
+
   return Object.entries(localStorage)
     .filter(([key]) => key.startsWith("board"))
     .map<[string, Board]>(([key, data]) => [key, JSON.parse(data)])
@@ -28,11 +32,11 @@ export function getAllBoardData(): BoardData[] {
 }
 
 export function resetBoard(seed: string, numClues: number) {
-  const board = getBoardData(seed, numClues);
+  const data = getBoardData(seed, numClues);
 
-  if (!board[1]) return;
+  if (!data) return;
 
-  board[1].cells.flat().forEach((cell) => {
+  data[1].cells.flat().forEach((cell) => {
     if (cell.editable) return;
 
     cell.value = undefined;

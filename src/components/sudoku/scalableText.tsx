@@ -11,9 +11,9 @@ export default function ScaleableText({ text }: ScalableTextProps) {
       <text
         x="50%"
         y="60%"
-        dominant-baseline="middle"
-        text-anchor="middle"
-        font-size="190%"
+        dominantBaseline="middle"
+        textAnchor="middle"
+        fontSize="190%"
         fill="black"
       >
         {text}

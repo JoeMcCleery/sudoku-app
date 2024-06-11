@@ -24,7 +24,7 @@ export default function BoardContainer() {
 
     // Get from local storage
     const data = getBoardData(seed, numClues);
-    if (data[1]) {
+    if (data) {
       setBoard(data[1]);
       return;
     }
