@@ -1,4 +1,4 @@
-import { boardProgress, cellsRemaining } from "@/sudoku/helper";
+import { cellsRemaining } from "@/sudoku/helper";
 import Link from "next/link";
 
 interface GamesListProps {
@@ -11,6 +11,10 @@ export function GamesList({ data }: GamesListProps) {
       <h3 className="text-xl font-bold mb-2">Past Games:</h3>
 
       <table className="m-auto text-slate-900 rounded overflow-hidden">
+        <colgroup>
+          <col width="100%"></col>
+        </colgroup>
+
         <thead>
           <tr className="bg-slate-600 text-slate-50">
             <th className="p-2">Seed</th>
@@ -26,7 +30,9 @@ export function GamesList({ data }: GamesListProps) {
               key={key}
               className="bg-slate-100 even:bg-slate-200 hover:bg-slate-300 transition-colors"
             >
-              <td className="p-2">{board.seed}</td>
+              <td className="p-2 text-ellipsis overflow-hidden max-w-1">
+                {board.seed}
+              </td>
               <td className="p-2">{board.numClues}</td>
               <td className={`p-2 ${board.completedAt && "font-bold"}`}>
                 {board.completedAt ? "✓" : cellsRemaining(board.cells)}
