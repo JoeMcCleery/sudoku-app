@@ -13,7 +13,7 @@ export default function CellHints({ legalValues }: CellHintsProps) {
   }, Array(9).fill(null));
 
   return (
-    <div className="absolute inset-0 size-full grid grid-cols-3 pointer-events-none">
+    <div className="absolute inset-0 size-full grid grid-cols-3 pointer-events-none p-[10%]">
       {allValues.map((value, i) => (
         <div
           key={i}
@@ -21,7 +21,10 @@ export default function CellHints({ legalValues }: CellHintsProps) {
             legalValues.includes(value) ? "opacity-100" : "opacity-0"
           }`}
         >
-          <ScalableText text={value.toString()} />
+          <ScalableText
+            text={value.toString()}
+            className="fill-lime-800"
+          />
         </div>
       ))}
     </div>
