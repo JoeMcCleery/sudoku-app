@@ -48,11 +48,8 @@ export default function ResponsiveGraph({
     data,
   }));
 
-  console.log(formattedData);
-
   // Get max y axis height
   const maxY = formattedData.reduce((max, d) => {
-    console.log(d);
     if (d.data[0] > max) return d.data[0];
     if (d.data[1] > max) return d.data[1];
     return max;
@@ -70,8 +67,6 @@ export default function ResponsiveGraph({
 
   // Get width of bands
   const bandWidth = width / days / 2;
-
-  console.log(bandWidth);
 
   useEffect(() => {
     // Clear graph
