@@ -7,8 +7,8 @@ interface GamesListProps {
 
 export function GamesList({ data }: GamesListProps) {
   return (
-    <div>
-      <h3 className="text-xl font-bold mb-2">Past Games:</h3>
+    <div className="grid gap-2">
+      <h3 className="text-xl font-bold">Past Games:</h3>
 
       <table className="m-auto text-slate-900 rounded overflow-hidden">
         <colgroup>

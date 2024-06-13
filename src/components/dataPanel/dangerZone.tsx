@@ -12,16 +12,18 @@ export default function DangerZone({ data, onReset }: DangerZoneProps) {
   }
 
   return (
-    <div>
-      <h3 className="text-xl font-bold mb-2">Danger Zone:</h3>
+    <div className="grid gap-2">
+      <h3 className="text-xl font-bold">Danger Zone:</h3>
 
-      <button
-        onClick={reset}
-        className="bg-red-500 text-red-50 p-2 rounded"
-        disabled={data.length == 0}
-      >
-        Reset
-      </button>
+      <div>
+        <button
+          onClick={reset}
+          className="bg-red-500 text-red-50 p-2 rounded"
+          disabled={data.length == 0}
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
 }
