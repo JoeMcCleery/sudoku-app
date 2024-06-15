@@ -21,15 +21,13 @@ Suduku web app and api built using next.js and hosted on vercel
   - display bar graph of games completed over time
   - display list of games (completed and in-progress)
   - resume in-progress games
-  - start new game form (optional seed and numClues fields)
 - Sudoku page [1, 2, 3]
-  - soduku puzzle using css grid
+  - soduku puzzle
   - input answers into grid cells
   - check for solution
   - save games to database
 - Animated user interations [2, 4, 5]
   - button/input animations
-  - graph animations
   - soduku solved animation
 
 ## Running Tests
