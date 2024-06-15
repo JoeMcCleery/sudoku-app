@@ -49,8 +49,8 @@ export default function ResponsiveGraph({
 
   // Get max y axis height
   const maxY = formattedData.reduce((max, d) => {
-    const highest = d.data[0] > d.data[1] ? d.data[0] : d.data[1];
-    if (highest > max) return highest;
+    if (d.data[0] > max) max = d.data[0];
+    if (d.data[1] > max) max = d.data[1];
     return max;
   }, 1);
 
