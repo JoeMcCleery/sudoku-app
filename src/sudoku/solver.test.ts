@@ -1,4 +1,4 @@
-import { createEmptyCells, generateBoard } from "./generate";
+import { createEmptyCells } from "./generate";
 import { getLegalValues, isSolved, trySolveRecursive } from "./solver";
 
 it("Sudoku: trySolveRecursive() updates cells and returns true when solution found otherwise doesn't change cells and returns false.", () => {
